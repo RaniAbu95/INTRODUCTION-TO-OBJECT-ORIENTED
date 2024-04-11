@@ -1,0 +1,64 @@
+rani.aboraya
+
+None.
+
+=============================
+=      File description     =
+=============================
+Move.java - This class represent a move in the Nim game. The move is determind
+by thechosen row, leftBound and the right bound.
+
+Board.java - The Board class represents a board of the Nim game. The board can 
+be of a variable size. In the required implementation it only has 4 rows, 
+7 sticks in the first row, and 5,3 and 1 sticks in the following rows.
+
+Player.java - The Player class represents a player in the Nim game, producing
+Moves as a response to a Board state. Each player is initialized with a type, 
+either human or one of several computer strategies, which defines the move he
+produces when given a board in some state.
+
+Competition.java -  The Competition class represents a Nim competition between
+two players,consisting of a given number of rounds. It also keeps track of the 
+number of victories of each player.
+
+=============================
+=          Design           =
+=============================
+In this homework we were asked to make a full implementation for some classes 
+while in others we were supplied with full or partial implementation.
+
+In this exercise we had to make a full implementation for the Move class, thus 
+we weren't limited in determining the design of it and its constructor and
+methods.
+
+The Player and the competition classes were implemented partialy and we got 
+a skeleton for each class conatining some of the classes methods. In this two
+classes the control of there design were limited. 
+
+The Board class was fully implemented therefore we didn't made any changes in 
+its design.
+
+
+=============================
+=  Implementation details   =
+=============================
+We implemented the Move class and choose the design for this class so it can fet the game rules, and 
+for make it easy for the classes that making a use of it. 
+In addition, we implemented the Player based on the API that we had get, this class contains the Player's
+types, strateges and other methods that is related to the players of the game.
+We also had to implement the Competition class which is responsible of running the game and to check 
+the legality of the game.
+
+
+=============================
+=    Answers to questions   =
+=============================
+We were asked to implement a game strategy for the smart player. I tried to make the player's move the best and by testing
+its performance it turns out that it can be win every player in the game. The stratege for the smart player is to count
+total sequences in board, if number of total sequences is even, returns a move to mark a whole sequence, if it's 
+odd it returns a move to mark just one stick.
+
+
+
+
+

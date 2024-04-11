@@ -1,0 +1,99 @@
+rani.aboraya
+
+gazal
+
+
+=============================
+=      Files description     =
+=============================
+*packages description* :
+
+    1.CodeVerifying
+    - CheckCompensation.java: A class that checks an assignment between two variables. It has a function that
+     tells if this assignment is legal or not.
+    - FinalsAndReputationErrs.java: The main goal of this class is to determine if the Sjava file doesn't
+      contain illegal variables names reputation and that finals variable is initialized with a val and that
+      val doesn't change all along the file.
+    - ReadAndValidateData.java: runs through the definition  of the variables and functions and all the assignment
+      that appears in the file in addition to the functions calls and checks the legality of all the above.
+    - RegexFactory.java: This class is responsible for checking each line in the s-java files. It returns true
+      if the line is a legal,else it returns false.
+
+    2.Objects:
+    - Function.java: A class that represents a function in the S-java file.
+    - Variable.java: A class for all the vars in the file. the variable has the following attributes : name,
+      type, scope, declaration place, number of line appearance, have val or not, local or global, final or
+      not, the number of function it's defined in.
+
+    3.ProgramManagement:
+    - MainCheck.java - This class iterates over the file lines and checks the following things:
+      runs through the regexes in each line of the file. runs through the variables name reputation and
+      legality of final vars. runs through the definition  of the variables and functions and all
+      the assignment that appears in the file in addition to the functions calls and checks the legality
+      of all the above.
+
+    4.Reading:
+    - LineReader.java - This class manage manage the reading of a line at the text, it has a number of methods
+      to ease the reading of a line and to make it easier for us to determine which regex should take the line.
+    - ReadFile.java - A class that reads a File object (S-java file) and returns all its lines.
+
+    5.SjavaExceptions:
+    - SjavaException.java - A class that represents an error in the S-java file. When an error is a syntax
+      error that found in the text and every time that we found such an error we throw an object of this
+      class.
+
+    Sjava.java - This is the main class that manages all the program, it reads the S-java file and based on
+    all the tests that are made in the other classes it determines if the the file is a legal S-java file or
+    not.
+
+
+
+=============================
+=          Design           =
+=============================
+We tried to make the design clear as we could, for this reason, we used the modules ideal of coding that
+we have learnt in class. The most complicated thing was to read the S-java file based on its content to print
+0 or 1 or 2 to indicate if the file is legal or not and if an error has happened. As a result of that, we
+divided it to a lot of a sub problems - as the decomposability principle we learnt, to implement this design
+we created some packages that contains classes with the same goal. Another design pattern that we have learned
+is the factory class which's main goal is to produce the suitable object for us, in this exercise we made a
+factory class for the regex based on the line we are reading in the file.
+
+=============================
+=         Answers           =
+=============================
+1)Implementing the errors in the exercise: we made one class that extend the java exception class. This class
+responsible for printing the error messages when it occurs. It has has a void method which prints a suitable
+message to the user in our case the number 1.
+
+2)How would you modify your code to add new types of variables: To make our program Supports a new variables
+types we should first add a regex that checks if all the variables that is defined withe the new type is legal
+(based on how it should be implemented), In addition we should make a change in the variable and the Function
+classes as a function could receive such a new type and a variable can hold this type.
+
+#Please select two of them, and describe which modifications/extensions you would have to make in your code?
+
+A)Unary and binary operators: We would've create a new regex that recognize the pattern of an unary/binary
+operators, such that this regex checks the validity of them. checks if a unary comes before a statement, and
+binary comes between two statements
+
+B)Switch statement: This feature is pretty close to the while and if conditions statements, and thus it
+supposed to be implemented in a the same way. In general we would make a new regex for the switch statement
+in addition we would check if the expression within the switch condition is legal and and all the cases has
+the same type as like what the switch receives, the format of this statement and the content of the cases
+is clear so it wouldn't be a big problem:).
+
+3)please describe two of the main regular expressions you used in your code.
+A)The legal name regex: this regex shared with most regexs. it checks whether the name of the variable
+is legal, as stated in the ex6 description the name of these two things should only contain
+letters(upper or lower case0 and digits so our name regex is as followed -
+"(([a-zA-Z])+|(_+\\w+)+)+(\\w*|_*)*".
+
+B)The regexes that checks the definition of a variable. variables are very important in the code and make
+the coding more easy and thus it is very used in the S-java file that you gave us, so the regex of the
+variable definition is very important. So here is here is for example the regex for an int type variable -
+"(final\\s)?\\s*int\\s+((" + legalVariableName + ")(\\s*=\\s*-?(" + "([0-9]+)|" + legalVariableName + "\\s*))*
+\\s*)\\s*(\\s*,\\s*(" + legalVariableName + "(\\s*=\\s*(-?([0-9])+|("+ legalVariableName + ")\\s*))*\\s*))*;
+\\s*".
+
+

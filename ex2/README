@@ -1,0 +1,47 @@
+rani.aboraya
+
+None.
+
+=============================
+=      File description     =
+=============================
+SpaceShipFactory.java is a class that contains a single static method that used
+by the driver to creat all the spaceships.
+
+HumanShip.java a class the represent aspaceship that is controlled by the user,
+ it can accelerate turn right of left,fire,t
+
+RunnerSpaceShip.java a class that represent a spaceship that tries to avoid
+ all other ships and try to run from the fight.
+
+BasherSpaceShip.java a class that represent a spaceship that will try to 
+collide with the nearest spaceship, If it gets within a distance of 0.2 units 
+from another ship, it will attempt to turn on its shields.
+
+Aggressive.java a class that represent a spaceship that pursues other ships and
+tries to fire at them.
+
+DrunkardShip.java a class that represent a spaceship that flies in a randomly 
+way. in each round it chose randomly weather to turn left or right or not 
+turning at all.
+
+
+=============================
+=          Design           =
+=============================
+We were responsible for designing our ships classes.
+I made a class which called Space Ship which had a created methods without 
+implementation, and I choose that class to be the super class, and all other 
+ships classes are extends from it (which make them sub-classes.
+All the classes share the same implemtation for all the methods except the 
+doAction and the fire method so I decided to override those methods in the 
+needed classes. 
+
+=============================
+=  Implementation details   =
+=============================
+We were told to create special and drunkard space ship. The special space ship 
+is faster than all the space ship, attempt to fire in every round, always with the
+shield up and teleporting every 20 rounds. The drunkard ship is a ship that flies in circular way, teleports after 
+several rounds, doesn't shot(drunk ships can't shot).
+

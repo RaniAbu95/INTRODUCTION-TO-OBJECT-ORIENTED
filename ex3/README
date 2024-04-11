@@ -1,0 +1,97 @@
+rani.aboraya
+
+None.
+
+=============================
+=      Files description     =
+=============================
+SimpleSet.java - An interface for the simple set.
+
+SimpleHashSet.java -  An abstract class that represents a hash sets. this class contains the basic
+methods of a simple hash set data structure. this is class is considered as a super class of the
+SimpleHashSet and the ClosedHashSet.
+
+OpenHashSet.java - The class represents a set which called OpenHashSet. This data structure is
+an array which has a linked list within each cell of it. the add, contain, delete takes O(1) on
+average case. This class extends the SimpleHashSet class and thus it's considered as a sub-class
+of it.
+
+OpenBucket.java - A class that represents a bucket in the OpenHashSet. This class has a linked list
+and we deligates its methods to make add, contain, delete for the open hash set.
+
+ClosedHashSet.java - The class represents a set which called ClosedHashSet. This data structure is
+an array which hasan object of type ClosedBucket . the add, contain, delete takes O(1) on average
+case. This class extends the SimpleHashSet class and thus it's considered as a sub-class of it.
+
+CloseBucket.java - A class that represents a bucket in the ClosedHashSet. This class has two data
+data members the first is a string which contains the string we save in the bucket, the second one 	
+is a boolean variable that tells us if the bucket is deleted or not. The main reason for creating 
+this class is for deleting elements from the closed hash set.
+
+CollectionFacadeSet.java - A class which wraps an underlying Collection and serves to both
+simplify its API and give it a common type with the implemented SimpleHashSets.
+
+SimpleSetPerformanceAnalyzer -  A class that have the five data structures. this class tests the
+performance for all of the data structures by adding two files containing strings to each of them
+and checks if they contains the mentioned words by calling the "contains()" method for each of the
+data structures.
+
+RESULTS - the resultures for all the data structures after the test that
+SimpleSetPerformanceAnalyzer.java makes.
+
+README - this file.
+
+
+
+=============================
+=          Design           =
+=============================
+I created an abstract class for the simple hash set which implements the simple set interface,
+this class is a super class for the open and close hash set. In additin to that it contains the 
+basic methods that a set should contain and most of them are abstrat cause it have a different 
+implemntation in the open and the close. 
+
+=============================
+=  Implementation details   =
+=============================
+I added two classes , I use them in my implementaion of the ClosedHashSet and OpenHashSet.
+The two classes are ClosedBucket OpenBucket, one of them is a wrapper the other is to determine
+the value that I want to delete.
+
+
+=======================================
+= deletion mechanism in ClosedHashSet =
+=======================================
+in CloseHashSet I implemented a new class that called ClosedBucket. the purpose of this class is 
+to manage the deletion in the close hash set. It has two data members fields, one of the them 
+is for indecating wheather the bucket is deleted or not, this thing makes the delete method in 
+the close hash set more easy and makes no trublle. 
+
+
+=========================================
+= result analysis =
+=========================================
+*We can notice that the OpenashSet and the ClosedHashSet have the highest time for adding data1 
+that's because all the words in this file have the same hash code which makes the add method 
+more comlpex for this two data structures.
+
+*The faster data structure for adding data1 is the tree set as we can see in the RESULTS file.
+on the other side, HashSet performe the best run time for adding data2.
+To find the word "hi" after adding data1 I would choose the ClosedHashSet, and for checking 
+if "-13170890158" is contained I would prefare the HashSet.
+To determine whether "23" is contained in a Set after adding to it data2, we can see that the 
+LinkedList makes that in the minimal time, and the ClosedHashSet makes that for checking "hi" 
+after adding data2.	
+
+*If we want to compare between the OpenHashSet and the CloseHashSet we can say that for the adding 
+purpose the OpenHashSet is better, but on the other hand we can see that the CloseHashSet performe 
+better results when we want to call the contains method.
+
+*The Java’s built in HashSet is more effictive when adding data. in the case of checking strings 
+using the contains method it took for it almost the same time as it took for the open and the 
+close.
+
+*I didn't expected that the data structures that I have implemnted will performe too much bad results 
+and I thought that they would be much more efficent.
+
+

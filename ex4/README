@@ -1,0 +1,88 @@
+rani.aboraya
+
+None.
+
+=============================
+=      Files description     =
+=============================
+Node.java - A class that represents a node at an avl tree. this class have a number
+of data that defines a node at the avl tree, such as the key, left and right child, parent, balance..
+
+TreeIterator.java - A class that implements an Iterator interface. This class have three method which
+is hasNext(), next() and remove(). the main purpose of this class is to iterate over the tree values.
+
+README - this file.
+
+=============================
+=          Design           =
+=============================
+We created three classes that are placed in the same package because they have they have
+the same purpose which is defining an avl tree.
+The AvlTree class uses the Node by making instance of it to create the tree node. In addition
+it uses the TreeIterator class to iterate over the keys in the tree in ascending order and to
+make sure that the remove() func isn't implemented and to throw exception in the suitable places.
+
+=============================
+=  Implementation details   =
+=============================
+-How the add method was implemented?
+To add a node in the avl tree I first find the correct place of the node to add
+as we do in the binary search tree insert , then I increase the size of the tree
+by one. at the end a call to the method that balancing the tree which is makeBalancedTree(Node tempNode)
+in order to save the avl feature.
+
+-How the delete method was implemented?
+First I call the contain() method with the value that I want to delete in order to know if the value is really within
+the tree. then I iterate over the tree to find the node that has the same as the value which I want to delete.
+After finding the node I ask if it is this is the root of the tree, If it was the root I call the "deleteRoot(Node node)"
+method with the root node. If not I call the "deleteNode(Node nodeToDelete, int numberOfSons)" which divide the deletion
+in three cases which is the number of sons of the node to delete and at the end of this method we call the function
+that makes the tree balance which is makeBalancedTree(Node tempNode).
+
+-Shared methods for the add() and delete():
+    *makeBalancedTree(Node tempNode): This method is common to both methods. The purpose of this method is to balance
+    the tree, It finds where the the the disorder was made and in addition what rotation must be done and based on that
+    it balances the tree.
+
+    *contains(int value): This method checks whether the tree contains the given input value, if val is found in the tree,
+    return the depth of the node (0 for the root) with the given value if it was found in the tree, -1 otherwise.
+
+
+Helper method that was used in the delete() method:
+    *deleteNode(nodeToDelete, numberOfSons(nodeToDelete)): This function delete a node of the tree based on its number
+    of sons. At the end ot this method a call to "makeBalancedTree(Node tempNode)" method is made with the parent of
+    the node to delete in order to save the avl tree priority.
+
+    *deleteRoot(nodeToDelete): This method handling the case in which we want to delete the root that is placed in the
+    root, and it makes the deletion to the tree based on his number of sons.
+
+
+=============================
+=          Questions         =
+=============================
+- What is the asymptotic running time complexity of the tree construction done in AvlTree(int[] data)?
+[40,45,25,20,30,50,43,10,15,35,55,5]
+
+- What is the asymptotic running time complexity of the tree construction done in AvlTree(int[] data)?
+the run time complexity is O(n*log(n)).
+to iterate over the array we need O(n) time and for inserting a value in an avl we need O(log(n)), thus
+we need in total O(n * log(n)).
+
+- What is the asymptotic running time complexity of the tree construction done in AvlTree(AvlTree avlTree)?
+in this constructor I build an iterator for the tree by calling to the method iterator(). this function
+takes O(n) cause it goes over the tree node and add the values of it to a linked list. the I iterate over
+the iterator that I get and that's take O(n) too, and inside the while loop I call the method add() which takes
+O(log n) to run. So in total the asymptotic running time complexity for this constructor O(n *log(n)).
+
+- Is that the best possible asymptotic running time complexity? If not, what is the best achievable complexity?
+No, it's not the best possible asymptotic running time complexity. We can do this in O(n) runtime.
+It can be made as follow:
+We first put the tree that we receive in a sorted array which takes O(n), and then we insert the sorted array
+to an empty tree and that takes O(log(n)). So in total this operation will take O(n).
+
+- What is the asymptotic running time complexity of your implementation of the operation done in findMinNodes(int h)?
+The running time complexity is O(1) as you can see.
+
+- Is that the best possible asymptotic running time complexity? If not, what is the best
+achievable complexity?
+No, this is the best running time complexity for any method and in particular in this case.

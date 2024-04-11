@@ -1,0 +1,46 @@
+rani.aboraya
+
+None.
+
+=============================
+=      Files description     =
+=============================
+packages:
+
+1.filters: contains all the filters classes.
+
+2.orders: contains all the order classes.
+
+3.exceptions: contains the warning and the error classes.
+
+4.DirectoryProcessor.java - The class that manage the program and connect all 
+the necessary classes with each other. It has a main method which runs the
+whole program, the main's args is a directory and a command file, the command
+file make its command on this directory and at the end we get sorted printed
+files which passed a filteration first.
+=============================
+=          Design           =
+=============================
+Order.java: super class for all the orders. All the order classes extends this class and 
+implements one method of this class which is compare() that deside in which order to sort
+the files.
+
+Filter.java: An interface for the filter classes which they all implements.
+it has two methods which desides how to make the filter process.
+
+=============================
+=         Exceptions       =
+=============================
+I made two classes that extend the java exception class.
+The first is Warning.java that is responsible for printing the warning messages.
+The second is Error.java that is responsible for printing the errors messages.
+They both have a void method which prints a suitable message to the user.
+
+
+=============================
+=  Implementation details   =
+=============================
+I used two arrays the first contains the filtered files and the second is for the sorted files.
+I itterate over the filtered files and in each iteration I find the max between all the filtered 
+files and place it in the correct place in the sorted array.
+

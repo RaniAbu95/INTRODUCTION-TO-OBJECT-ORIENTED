@@ -1,0 +1,47 @@
+
+#These values correspond to the time it takes (in ms) to insert data1 to all data structures
+OpenHashSet_AddData1 = 50741
+ClosedHashSet_AddData1 = 560185
+TreeSet_AddData1 = 59
+LinkedList_AddData1 = 48167
+HashSet_AddData1 = 76
+
+#These values correspond to the time it takes (in ms) to insert data2 to all data structures
+OpenHashSet_AddData2 = 56
+ClosedHashSet_AddData2 = 83
+TreeSet_AddData2 = 64
+LinkedList_AddData2 = 31101
+HashSet_AddData2 = 11
+
+#These values correspond to the time it takes (in ns) to check if "hi" is contained in
+#the data structures initialized with data1
+OpenHashSet_Contains_hi1 = 64346
+ClosedHashSet_Contains_hi1 = 27633
+TreeSet_Contains_hi1 = 30001
+LinkedList_Contains_hi1 = 1578239
+HashSet_Contains_hi1 = 31975
+
+#These values correspond to the time it takes (in ns) to check if "-13170890158" is contained in
+#the data structures initialized with data1
+OpenHashSet_Contains_negative = 1277434
+ClosedHashSet_Contains_negative = 14230600
+TreeSet_Contains_negative = 48950
+LinkedList_Contains_negative = 1034263
+HashSet_Contains_negative = 27633
+
+#These values correspond to the time it takes (in ns) to check if "23" is contained in
+#the data structures initialized with data2
+OpenHashSet_Contains_23 = 35133
+ClosedHashSet_Contains_23 = 26449
+TreeSet_Contains_23 = 17764
+LinkedList_Contains_23 = 14211
+HashSet_Contains_23 = 60793
+
+#These values correspond to the time it takes (in ns) to check if "hi" is contained in
+#the data structures initialized with data2
+OpenHashSet_Contains_hi2 = 38687
+ClosedHashSet_Contains_hi2 = 19738
+TreeSet_Contains_hi2 = 28818
+LinkedList_Contains_hi2 = 22501
+HashSet_Contains_hi2 = 37502
+
